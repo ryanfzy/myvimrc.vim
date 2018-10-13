@@ -1,4 +1,23 @@
-function myvimrc#SetUp()
+" author: ryan feng
+
+" check if it is already loaded
+if exists("g:loaded_myvimrc")
+    finish
+endif
+let g:loaded_myvimrc = 1
+
+" save current vim settings
+let s:save_cpo = &cpo
+" reset vim settings
+set cpo&vim
+
+" restore vim settings
+function! s:Restore_cpo()
+    let &cpo = s:save_cpo
+    unlet s:save_cpo
+endfunction
+
+function myvimrc#Run()
     set nocompatible
 
     let mapleader=";"
@@ -49,3 +68,4 @@ function myvimrc#SetUp()
     set confirm
 endfunction
 
+call s:Restore_cpo()
