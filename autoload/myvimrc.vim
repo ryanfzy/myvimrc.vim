@@ -20,7 +20,7 @@ endfunction
 function myvimrc#Run()
     set nocompatible
 
-    let mapleader=";"
+    let g:mapleader=";"
 
     " this will cause cursor moving right a position delay
     "nmap lb 0
